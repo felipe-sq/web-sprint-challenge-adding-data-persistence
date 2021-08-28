@@ -31,7 +31,7 @@ async function createTask(task) {
     task_completed: newTaskData.task_completed === 1 ? true : false,
   }
 
-  // below code was one of the first iterations -- needlessly complicated and did not work!
+  // below code was one of the previous iterations -- needlessly complicated and did not work!
 
   // const project = await getProjectById(project_id);
 
