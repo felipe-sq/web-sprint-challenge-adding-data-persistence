@@ -2,14 +2,21 @@
 const router = require("express").Router();
 const projectHelpers = require('./model.js');
 
-router.get('/', (req, res, next) => {
-  // console.log('API payload is pending')
+// const boolean = (boolData) => {
+//   return boolData.map((data) => ({
+//     ...data,
+//     project_completed: data.project_completed === 1 ? true : false,
+//   }));
+// };
 
-  projectHelpers.getAll()
-    .then((projects) => {
-      res.status(200).json(projects);
-    })
-    .catch(next);
+router.get('/', async (req, res, next) => {
+  
+  try {
+    const projects = await projectHelpers.getAll();
+    res.json(projects);
+  } catch (err) {
+    next(err);
+  }
 });
 
 router.get('/:project_id', (req, res, next) => {
@@ -20,18 +27,21 @@ router.get('/:project_id', (req, res, next) => {
     .catch(next);
 });
 
-router.post('/', (req, res, next) => {
-  const newProject = req.body;
+router.post('/', async (req, res, next) => {
 
-  if (!newProject.project_name) {
-    return next({ status: 400, message: 'Missing required field: project name' });
-  } else {
-  projectHelpers.createProject(newProject)
-    .then((project) => {
-      res.status(201).json(project);
-    })
-    .catch(next);
+  try {
+    const newProject = await projectHelpers.createProject(req.body);
+    res.status(201).json(newProject);
+  } catch (err) {
+    next(err);
   }
+});
+
+router.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
+  res.status(500).json({
+    error: err.message,
+    stack: err.stack,
+  });
 });
 
 module.exports = router;

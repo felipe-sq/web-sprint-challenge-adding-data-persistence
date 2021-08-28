@@ -16,7 +16,7 @@ server.use('/api/tasks', tasksRouter);
 //   res.json({ api: "API is running!" });  
 // });
 
-server.use((err, req, res, next) => {
+server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   res.status(500).json({ 
     message: err.message,
     stack: err.stack, 

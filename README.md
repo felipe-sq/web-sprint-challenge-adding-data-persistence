@@ -68,13 +68,13 @@ Build the migration(s) in Knex inside the `data/migrations` folder using appropr
 
 Build an API inside the `api` folder with endpoints for:
 
-- [ ] `[POST] /api/resources`
+- [x] `[POST] /api/resources`
   - Example of response body: `{"resource_id":1,"resource_name":"foo","resource_description":null}`
 
 - [x] `[GET] /api/resources`
   - Example of response body: `[{"resource_id":1,"resource_name":"foo","resource_description":null}]`
 
-- [ ] `[POST] /api/projects`
+- [x] `[POST] /api/projects`
   - Even though `project_completed` is stored as an integer, the API uses booleans when interacting with the client
   - Example of response body: `{"project_id":1,"project_name":"bar","project_description":null,"project_completed":false}`
 
@@ -82,7 +82,7 @@ Build an API inside the `api` folder with endpoints for:
   - Even though `project_completed` is stored as an integer, the API uses booleans when interacting with the client
   - Example of response body: `[{"project_id":1,"project_name":"bar","project_description":null,"project_completed":false}]`
 
-- [ ] `[POST] /api/tasks`
+- [x] `[POST] /api/tasks`
   - Even though `task_completed` is stored as an integer, the API uses booleans when interacting with the client
   - Example of response body: `{"task_id":1,"task_description":"baz","task_notes":null,"task_completed":false,"project_id:1}`
 
@@ -102,16 +102,22 @@ Build an API inside the `api` folder with endpoints for:
 
 ## Submission format
 
-- [ ] Submit via Codegrade by pushing commits to your `<firstName-lastName>` branch on Github.
-- [ ] Check Codegrade before the deadline to compare its results against your local tests.
-- [ ] Check Codegrade on the days following the Sprint Challenge for reviewer feedback.
-- [ ] New commits will be evaluated by Codegrade if pushed _before_ the sprint challenge deadline.
+- [x] Submit via Codegrade by pushing commits to your `<firstName-lastName>` branch on Github.
+- [x] Check Codegrade before the deadline to compare its results against your local tests.
+- [x] Check Codegrade on the days following the Sprint Challenge for reviewer feedback.
+- [x] New commits will be evaluated by Codegrade if pushed _before_ the sprint challenge deadline.
 
 ## Interview Questions
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain the difference between Relational Databases and SQL.
+   `The difference between relational databases and SQL is that relational databases are more like structured containers for information, where SQL is more of a query language.`
 2. Why do tables need a Primary Key?
+   `Tables need a primary key to be able to uniquely identify a row.`
+
 3. What is the name given to a table column that references the Primary Key on another table?
+   `The table column that references the Primary Key on another table is given the name of: foreign key.`
+
 4. What do we need in order to have a _many to many_ relationship between two tables?
+   `We would need a table that has a column referencing the Primary Key of the first table, and a table that has a column that references the Primary Key of the second table; these are sometimes called "assignments".`

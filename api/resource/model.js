@@ -10,7 +10,8 @@ async function getResourceById(resource_id) {
 }
 
 async function createResource(resource) {
-  return await db('resources').insert(resource);
+  const [id] = await db('resources').insert(resource);
+  return await db('resources').where('resource_id', id).first();
 }
 
 module.exports = {

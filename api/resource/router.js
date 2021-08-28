@@ -35,4 +35,11 @@ router.post('/', (req, res, next) => {
   }
 });
 
+router.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
+  res.status(500).json({
+    error: err.message,
+    stack: err.stack,
+  });
+});
+
 module.exports = router;
