@@ -17,7 +17,7 @@ async function getProjectById(project_id) {
 }
 
 async function createProject(project) {
-  const [id] = await db("projects").insert(project, "project_id");
+  const [id] = await db("projects").insert(project);
   const newProject = await getProjectById(id);
 
   return {

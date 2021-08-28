@@ -23,7 +23,7 @@ async function getTaskById(task_id) {
 }
 
 async function createTask(task) {
-  const [id] = await db('tasks').insert(task, 'task_id');
+  const [id] = await db('tasks').insert(task);
   const newTaskData = await getTaskById(id);
 
   return {
